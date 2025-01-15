@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Manager</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.bookmark-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.bookmark-form input {
+    padding: 8px;
+    width: 200px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.bookmark-form button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bookmark-form button:hover {
+    background-color: #0056b3;
+}
+
+#bookmark-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bookmark-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark-item a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.bookmark-item a:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bookmark Manager</h1>
+        <div class="bookmark-form">
+            <input type="text" id="url" placeholder="Enter URL" required>
+            <input type="text" id="title" placeholder="Enter Title" required>
+            <button onclick="addBookmark()" >Add Bookmark</button>
+        </div>
+        <ul id="bookmark-list">
+            <!-- Bookmarks will appear here -->
+        </ul>
+    </div>
+    
+    <script>
+        // Function to add a bookmark
+function addBookmark() {
+    const url = document.getElementById('url').value;
+    const title = document.getElementById('title').value;
+
+    if (url && title) {
+        const bookmarkList = document.getElementById('bookmark-list');
+        
+        // Create new bookmark item
+        const li = document.createElement('li');
+        li.classList.add('bookmark-item'); // add a class to an li element
+        
+        // create an a element asign the url text content to href attribute of a element and asign the text content of title to a element
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = "_blank";
+        a.textContent = title;
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.onclick = function () {
+            li.remove();
+        };
+
+        li.appendChild(a);
+        li.appendChild(deleteBtn);
+
+        bookmarkList.appendChild(li);
+
+        // Clear input fields
+        document.getElementById('url').value = '';
+        document.getElementById('title').value = '';
+    } else {
+        alert("Please enter both URL and Title!");
+    }
+}
+
+    </script>
+</body>
+</html>
