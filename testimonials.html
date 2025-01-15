@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Testimonials</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.testimonials-container {
+  width: 80%;
+  max-width: 800px;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  height: 300px;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  animation: scrollTestimonial 60s linear infinite;
+}
+
+.testimonial {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #e3e4d2;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(119, 119, 51);
+}
+
+.testimonial p:last-child {
+  text-align: right;
+  font-style: italic;
+}
+
+@keyframes scrollTestimonial {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  100% {
+    transform: translateY(-400%);
+  
+}
+
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="testimonials-container">
+    <div class="testimonials" id="testimonials">
+      <div class="testimonial">
+        <p>"This product has changed my life. Highly recommend!"</p>
+        <p>- sara almah</p>
+      </div>
+      <div class="testimonial">
+        <p>"Fantastic service! Will be coming back for more."</p>
+        <p>- Jane Smith</p>
+      </div>
+      <div class="testimonial">
+        <p>"I’ve never experienced such great customer support."</p>
+        <p>- Chris hart</p>
+      </div>
+      <div class="testimonial">
+        <p>"A game-changer in my daily routine. Thank you!"</p>
+        <p>- kamau noroge</p>
+      </div>
+      <div class="testimonial">
+        <p>"This product has changed my life. Highly recommend!"</p>
+        <p>- John willy</p>
+      </div>
+      <div class="testimonial">
+        <p>"Fantastic service! Will be coming back for more."</p>
+        <p>- Jack Smith</p>
+      </div>
+      <div class="testimonial">
+        <p>"I’ve never experienced such great customer support."</p>
+        <p>- wamae John</p>
+      </div>
+      <div class="testimonial">
+        <p>"A game-changer in my daily routine. Thank you!"</p>
+        <p>- Abraham cookie</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Optional JS if you want to add functionality for pausing the scroll or interacting with it
+const testimonials = document.getElementById('testimonials');
+
+testimonials.addEventListener('mouseover', function() {
+  testimonials.style.animationPlayState = 'paused';
+});
+
+testimonials.addEventListener('mouseout', function() {
+  testimonials.style.animationPlayState = 'running';
+});
+
+  </script>
+</body>
+</html>
