@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.todo-container {
+    background-color: rgb(50, 192, 73);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 40px rgba(247, 233, 49, 0.918);
+    width: 400px;
+    height: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4f2ec9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #f8faf8;
+    color: #572fe9;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
+}
+#demo{
+    color: #e60000;
+    font-family: monospace;
+    font-size: 20px;
+
+}
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>My To-Do List</h1>
+        <input type="text" id="task-input" placeholder="Add a new task">
+        <button id="add-task-btn">Add Task</button>
+        <p id="demo"></p>
+        <ul id="task-list"></ul>
+    </div>
+
+    <script>
+        //add an event listener to the  add task button
+        document.getElementById("add-task-btn").addEventListener("click", addTask);
+
+        // define the function that is responsible for appending items
+function addTask() {
+    const taskInput = document.getElementById("task-input");
+    const taskText = taskInput.value.trim(); // remove any white space that might cause anomally
+
+    // if the user did not provide a task return this text
+    if (taskText === ""){
+        return document.getElementById('demo').innerHTML = " PROVIDE A VALID INPUT";
+    } else{
+        document.getElementById('demo').innerHTML = "you will" +  taskText;
+    }
+    taskText.value= " ";
+
+    const taskList = document.getElementById("task-list");
+ 
+        // create an li element and within append text value of input element with delete button and span element to hold the text  value
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <span class="task-text">${taskText}</span>
+        <button class="delete-btn">Delete</button>
+    `;
+    //when you click on the spam or the delete button do the following
+    li.querySelector(".task-text").addEventListener("click", toggleComplete);
+    li.querySelector(".delete-btn").addEventListener("click", deleteTask);
+
+    taskList.appendChild(li);
+    taskInput.value = ""; // Clear input after adding the task
+}
+
+function toggleComplete(e) {
+    e.target.closest("li").classList.toggle("completed");
+}
+
+// function to delete task
+function deleteTask(e) {
+    e.target.closest("li").remove(); //remove the li element
+    document.getElementById('demo').innerHTML = " "; // clear the warning or message after deletion
+
+}
+
+    </script>
+</body>
+</html>
