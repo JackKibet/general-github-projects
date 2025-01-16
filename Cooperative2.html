@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cooperative Bank of Kenya Replica">
+    <title>Cooperative Bank of Kenya Replica</title>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+h2{
+    color: white;
+}
+
+body {
+    background-color: #0e4715;
+    color: #333;
+}
+
+header {
+    background-color: #f2f7f667; /* Cooperative Bank's signature blue */
+    padding: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    padding: 11px;
+
+    
+}
+nav ul li a:hover{
+    background-color: #eef3ef;
+    color: rgb(16, 61, 10);
+}
+
+.hero {
+    background-color: #0a3b0c; /* Darker blue */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.cta-button {
+    background-color: #29b6f6; /* Bright accent color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    position: relative;
+    top: 1.6rem;
+}
+.services {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+    gap: 20px;
+}
+
+.service-cards .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 280px; /* Ensure cards stay readable on smaller screens */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.service-cards .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #0073aa;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    margin-top: 200px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-cards .card {
+        width: 90%; /* Ensure cards take up most of the screen on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+
+    }
+}
+
+
+ h1{
+    display: inline-block;
+    color: whitesmoke;
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+ }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Cooperative Bank</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Online Banking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Cooperative Bank of Kenya</h1>
+            <p class="demo">Your trusted financial partner</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Personal Banking</h3>
+                <p>Explore our range of personal banking services including savings and loans.</p>
+            </div>
+            <div class="card">
+                <h3>Business Banking</h3>
+                <p>Tailored solutions for businesses to help you grow and manage finances.</p>
+            </div>
+            <div class="card">
+                <h3>Online Banking</h3>
+                <p>Manage your bank account online securely and easily.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Cooperative Bank of Kenya | All rights reserved.</p>
+            <div class="social-media">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
