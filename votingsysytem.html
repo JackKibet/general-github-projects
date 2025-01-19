@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.vote-option {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vote for Your Favorite Option</h1>
+        <div class="vote-option">
+            <h2>Option 1</h2>
+            <button onclick="vote1('option1')">Vote for Option 1</button>
+            <p>Votes: <span id="option1-votes">0</span></p>
+        </div>
+        <div class="vote-option">
+            <h2>Option 2</h2>
+            <button onclick="vote2('option2')">Vote for Option 2</button>
+            <p>Votes: <span id="option2-votes">0</span></p>
+        </div>
+        <div class="vote-option">
+            <h2>Option 3</h2>
+            <button onclick="vote3('option3')">Vote for Option 3</button>
+            <p>Votes: <span id="option3-votes">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        const arr = [{option1: '0'},{option2: '0'},{option3: '0'}];
+        console.log(arr[0].option1);
+        
+function vote1(votes){
+
+    document.getElementById('option1-votes').textContent = arr[0].option1++;
+}
+function vote2(votes){
+    document.getElementById('option2-votes').textContent = arr[1].option2++;
+}
+
+function vote3(votes){
+    document.getElementById('option3-votes').textContent = arr[2].option3++;
+}
+    </script>
+</body>
+</html>
