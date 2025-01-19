@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Business Card</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2424b3cc;
+    margin: 0;
+}
+
+.card {
+    width: 300px;
+background-color: rgb(100, 68, 68);
+   box-shadow: 20px 20px 20px 8px rgb(191, 212, 2);
+   
+
+
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-header h1 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.card-header p {
+    font-size: 16px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: left;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.card-footer {
+    background-color: #3b3ba5;
+    padding: 10px;
+}
+
+.card-footer button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.card-footer button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <img src="spa 2.jpg" alt="Profile Picture" class="profile-img">
+            <h1>John Doe</h1>
+            <p>Web Developer</p>
+        </div>
+        <div class="card-body">
+            <p><strong>Email:</strong> johnwilliams@example.com</p>
+            <p><strong>Phone:</strong> +254 456 XXX</p>
+            <p><strong>Website:</strong> <a href="https://johndoe.dev" target="_blank">johndoe.dev</a></p>
+        </div>
+        <div class="card-footer">
+            <button onclick="copyEmail()">Copy Email</button>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail() {
+    const email = "johnwilliams@example.com";
+    // how to copy text
+    navigator.clipboard.writeText(email).then(() => {
+        alert("Email copied to clipboard!");
+    }).catch(err => {
+        alert("Failed to copy email.");
+    });
+}
+
+    </script>
+</body>
+</html>
