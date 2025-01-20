@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown a{
+            text-decoration: none;
+            padding: 6px;
+            display: block;
+            position: relative;
+            border-bottom: 1px solid rgb(36, 36, 23);
+        }
+        #container{
+            background-color: papayawhip;
+            border-radius: 7px;
+            width: 150px;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+        .dropdown{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        #dropdown1{
+            transition: 0.3s;
+        }
+        #dropdown1:hover{
+            background-color: blue;
+            color: aqua;
+            font-size: 15px;
+            font-family: cursive;
+        }
+        button{
+            margin-left: 10px;
+        }
+        .dropdown a:last-child{
+            border-radius: 0px 0px 7px 7px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="togglemenu()">Menu</button>
+    <div id="container" class="dropdown">
+            <a id="dropdown1" href="">Blog</a>
+            <a id="dropdown1"  href="">Services</a>
+            <a id="dropdown1" href="">Home</a>
+            <a id="dropdown1" href="">Contact</a>
+            <a id="dropdown1" href="">Social media</a>
+            <a id="dropdown1" href="">Packages</a>
+    </div>
+
+    <script>
+        function togglemenu(){
+            const menu = document.getElementById('container');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
