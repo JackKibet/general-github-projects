@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Booking System</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#confirmation-message {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+button:focus, input:focus {
+    outline: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Airline Booking System</h1>
+        
+        <!-- Flight Selection -->
+        <div class="section" id="flight-selection">
+            <h2>Select a Flight</h2>
+            <label for="departure">Departure:</label>
+            <input type="text" id="departure" placeholder="Enter departure city">
+            
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" placeholder="Enter destination city">
+            
+            <label for="date">Date of Travel:</label>
+            <input type="date" id="date">
+            
+            <button id="searchFlights">Search Flights</button>
+        </div>
+
+        <!-- Passenger Details -->
+        <div class="section" id="passenger-details" style="display:none;">
+            <h2>Passenger Details</h2>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+            
+            <button id="bookFlight">Book Flight</button>
+        </div>
+
+        <!-- Confirmation -->
+        <div class="section" id="confirmation" style="display:none;">
+            <h2>Booking Confirmation</h2>
+            <p id="confirmation-message"></p>
+            <button id="newBooking">Make a New Booking</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchFlights').addEventListener('click', function() {
+    let departure = document.getElementById('departure').value;
+    let destination = document.getElementById('destination').value;
+    let date = document.getElementById('date').value;
+
+    if (departure && destination && date) {
+        document.getElementById('flight-selection').style.display = 'none';
+        document.getElementById('passenger-details').style.display = 'block';
+    } else {
+        alert('Please fill in all the fields');
+    }
+});
+
+document.getElementById('bookFlight').addEventListener('click', function() {
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+
+    if (name && email && phone) {
+        document.getElementById('passenger-details').style.display = 'none';
+        document.getElementById('confirmation').style.display = 'block';
+
+        let confirmationMessage = `Booking Confirmed! ${name}, your flight from ${document.getElementById('departure').value} to ${document.getElementById('destination').value} on ${document.getElementById('date').value} has been booked successfully.`;
+        document.getElementById('confirmation-message').textContent = confirmationMessage;
+    } else {
+        alert('Please fill in all the fields');
+    }
+});
+
+document.getElementById('newBooking').addEventListener('click', function() {
+    document.getElementById('confirmation').style.display = 'none';
+    document.getElementById('flight-selection').style.display = 'block';
+});
+
+    </script>
+</body>
+</html>
