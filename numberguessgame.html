@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guessing game</title>
+</head>
+<body>
+    <script>
+        const minNum = 1;
+        const maxNum = 100;
+        let attempts;
+        let guess;
+        let running = true;
+     const answer = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+        
+     while(running){
+        
+        guess = window.prompt(`please enter a valid number between ${minNum} - ${maxNum}`);
+        guess = Number(guess);
+
+        if(guess < minNum || guess > maxNum){
+
+            alert("please enter a valid number");
+        } else if(isNaN(guess)){
+            alert("we dont accept words or letters");
+        } else{
+            attempts ++;
+            if(guess < answer || guess > answer){
+                alert("please try again");
+            } else{
+                alert(`CORRECT the answer was ${answer} and you had ${attempts}`);
+                runing = false;
+
+            }
+
+        }
+     }
+    </script>
+</body>
+</html>

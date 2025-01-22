@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            background-color: #f4f4f4;
+            border-radius: 6px;
+            width: 500px;
+            text-align: center;
+            padding: 12px;
+        }
+        #agebtn{
+            border: none;
+            border-radius: 7px;
+            background-color: green;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div id="container">
+    <h1>Age Calculator</h1>
+    <label for="dateobject">Enter your date of birth:</label><br>
+    <input type="date" id="date">
+    <button id="agebtn" onclick="calculateAge()">Calculate Age</button>
+    <p id="demo"></p>
+   </div>
+    <script>
+       
+
+       //calculate age
+       function calculateAge(){
+         // get a reference to all neccessary elements
+       const birthdate = document.getElementById('date').value;
+       const birthDateObject = new Date(birthdate);
+       const currentDate = new Date();
+        
+       let age = currentDate.getFullYear() - birthDateObject.getFullYear();
+       const monthDifference = currentDate.getMonth() - birthDateObject.getMonth();
+       if(monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < birthDateObject.getDate())){
+        age--;
+       }
+       //display date
+       const displayDate = document.getElementById('demo');
+       if(birthdate === ""){
+        displayDate.innerText = "you did not provide any date value";
+       } else{
+        displayDate.innerText = `you are ${age} years old`;
+       }
+    }
+    </script>
+</body>
+</html>
