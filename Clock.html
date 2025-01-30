@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock with Date and Time</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .clock {
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .date {
+      font-size: 1.5em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .time {
+      font-size: 2.5em;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="date" id="date"></div>
+    <div class="time" id="time"></div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const currentDate = now.toLocaleDateString(undefined, optionsDate);
+
+      const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const currentTime = now.toLocaleTimeString(undefined, optionsTime);
+
+      document.getElementById('date').textContent = currentDate;
+      document.getElementById('time').textContent = currentTime;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

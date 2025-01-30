@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Dashboard</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #333;
+}
+
+.stocks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stock-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+}
+
+.stock-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.stock-price {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.stock-change {
+    font-size: 1rem;
+    color: #4CAF50;
+}
+
+.stock-card .stock-change.negative {
+    color: #f44336;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Market Dashboard</h1>
+        </header>
+
+        <div class="stocks">
+            <div class="stock-card" id="stock1">
+                <h2>Apple Inc.</h2>
+                <p class="stock-price">Loading...</p>
+                <p class="stock-change">Loading...</p>
+            </div>
+            <div class="stock-card" id="stock2">
+                <h2>Amazon.com Inc.</h2>
+                <p class="stock-price">Loading...</p>
+                <p class="stock-change">Loading...</p>
+            </div>
+            <div class="stock-card" id="stock3">
+                <h2>Microsoft Corp.</h2>
+                <p class="stock-price">Loading...</p>
+                <p class="stock-change">Loading...</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Real-time data powered by the stock API</p>
+        </footer>
+    </div>
+
+    <script src>
+        const stocks = [
+    { symbol: 'AAPL', elementId: 'stock1' },
+    { symbol: 'AMZN', elementId: 'stock2' },
+    { symbol: 'MSFT', elementId: 'stock3' }
+];
+
+const API_KEY = 'YOUR API KEY'; // Use a free stock market API key (e.g., Alpha Vantage, IEX Cloud)
+
+function fetchStockData(symbol, elementId) {
+    fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => {
+            const timeSeries = data['Time Series (5min)'];
+            const latestTime = Object.keys(timeSeries)[0];
+            const latestData = timeSeries[latestTime];
+            const currentPrice = latestData['4. close'];
+            const previousPrice = Object.values(timeSeries)[1]['4. close'];
+
+            const priceElement = document.querySelector(`#${elementId} .stock-price`);
+            const changeElement = document.querySelector(`#${elementId} .stock-change`);
+            priceElement.textContent = `$${parseFloat(currentPrice).toFixed(2)}`;
+            
+            const change = ((parseFloat(currentPrice) - parseFloat(previousPrice)) / parseFloat(previousPrice)) * 100;
+            changeElement.textContent = `${change.toFixed(2)}%`;
+            
+            // Apply color change for positive/negative percentage change
+            if (change < 0) {
+                changeElement.classList.add('negative');
+            } else {
+                changeElement.classList.remove('negative');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching stock data:', error);
+        });
+}
+
+stocks.forEach(stock => {
+    fetchStockData(stock.symbol, stock.elementId);
+});
+
+    </script>
+</body>
+</html>

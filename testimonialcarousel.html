@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Carousel</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonial {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.testimonial p {
+  font-size: 18px;
+  color: #555;
+}
+
+.testimonial h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 10px;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+  </style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="testimonial">
+        <p>"This product has changed my life! Highly recommend to everyone."</p>
+        <h3>- John Doe</h3>
+      </div>
+      <div class="testimonial">
+        <p>"Excellent service and fantastic quality. Will definitely come back!"</p>
+        <h3>- Sarah Smith</h3>
+      </div>
+      <div class="testimonial">
+        <p>"A game-changer in the industry. I saw immediate results after using it."</p>
+        <h3>- Michael Johnson</h3>
+      </div>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+
+function moveSlide(direction) {
+  const testimonials = document.querySelectorAll('.testimonial');
+  const totalTestimonials = testimonials.length;
+  currentIndex = (currentIndex + direction + totalTestimonials) % totalTestimonials;
+  document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+  </script>
+</body>
+</html>

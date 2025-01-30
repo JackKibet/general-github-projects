@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Finder</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-container {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.restaurant-list {
+    margin-top: 20px;
+}
+
+.restaurant-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.restaurant-item:last-child {
+    border-bottom: none;
+}
+
+.restaurant-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.restaurant-details {
+    font-size: 14px;
+    color: #555;
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Finder</h1>
+        <div class="form-container">
+            <label for="location">Enter Location:</label>
+            <input type="text" id="location" placeholder="Enter city or zip code">
+            
+            <label for="cuisine">Choose Cuisine:</label>
+            <select id="cuisine">
+                <option value="Italian">Italian</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Indian">Indian</option>
+                <option value="American">American</option>
+            </select>
+
+            <button onclick="findRestaurants()">Find Restaurants</button>
+        </div>
+        
+        <div id="restaurant-list" class="restaurant-list">
+            <!-- List of restaurants will appear here -->
+        </div>
+    </div>
+
+    <script>
+        const restaurantsData = {
+    "Italian": [
+        { name: "Luigi's Trattoria", location: "New York", description: "Cozy Italian eatery with classic dishes" },
+        { name: "Pasta House", location: "San Francisco", description: "Authentic pasta and pizza" },
+    ],
+    "Chinese": [
+        { name: "Golden Dragon", location: "Los Angeles", description: "Delicious dim sum and noodles" },
+        { name: "Beijing Kitchen", location: "Chicago", description: "Traditional Chinese cuisine" },
+    ],
+    "Mexican": [
+        { name: "El Camino", location: "Houston", description: "Tacos and burritos, a perfect meal" },
+        { name: "La Fiesta", location: "Miami", description: "Mexican specialties with a modern twist" },
+    ],
+    "Indian": [
+        { name: "Curry Palace", location: "New York", description: "Flavorful curries and traditional dishes" },
+        { name: "Bombay Spice", location: "San Francisco", description: "Spicy Indian dishes served hot" },
+    ],
+    "American": [
+        { name: "Grill Shack", location: "Los Angeles", description: "Burgers, fries, and milkshakes" },
+        { name: "The Diner", location: "Chicago", description: "American comfort food all day" },
+    ]
+};
+
+function findRestaurants() {
+    const location = document.getElementById("location").value.toLowerCase();
+    const cuisine = document.getElementById("cuisine").value;
+    
+    const filteredRestaurants = restaurantsData[cuisine].filter(restaurant => {
+        return restaurant.location.toLowerCase().includes(location);
+    });
+
+    const restaurantList = document.getElementById("restaurant-list");
+    restaurantList.innerHTML = ""; // Clear previous results
+
+    if (filteredRestaurants.length > 0) {
+        filteredRestaurants.forEach(restaurant => {const restaurantsData = {
+    "Italian": [
+        { name: "Luigi's Trattoria", location: "New York", description: "Cozy Italian eatery with classic dishes" },
+        { name: "Pasta House", location: "San Francisco", description: "Authentic pasta and pizza" },
+    ],
+    "Chinese": [
+        { name: "Golden Dragon", location: "Los Angeles", description: "Delicious dim sum and noodles" },
+        { name: "Beijing Kitchen", location: "Chicago", description: "Traditional Chinese cuisine" },
+    ],
+    "Mexican": [
+        { name: "El Camino", location: "Houston", description: "Tacos and burritos, a perfect meal" },
+        { name: "La Fiesta", location: "Miami", description: "Mexican specialties with a modern twist" },
+    ],
+    "Indian": [
+        { name: "Curry Palace", location: "New York", description: "Flavorful curries and traditional dishes" },
+        { name: "Bombay Spice", location: "San Francisco", description: "Spicy Indian dishes served hot" },
+    ],
+    "American": [
+        { name: "Grill Shack", location: "Los Angeles", description: "Burgers, fries, and milkshakes" },
+        { name: "The Diner", location: "Chicago", description: "American comfort food all day" },
+    ]
+};
+
+function findRestaurants() {
+    const location = document.getElementById("location").value.toLowerCase();
+    const cuisine = document.getElementById("cuisine").value;
+    
+    const filteredRestaurants = restaurantsData[cuisine].filter(restaurant => {
+        return restaurant.location.toLowerCase().includes(location);
+    });
+
+    const restaurantList = document.getElementById("restaurant-list");
+    restaurantList.innerHTML = ""; // Clear previous results
+
+    if (filteredRestaurants.length > 0) {
+        filteredRestaurants.forEach(restaurant => {
+            const div = document.createElement("div");
+            div.classList.add("restaurant-item");
+
+            div.innerHTML = `
+                <div class="restaurant-name">${restaurant.name}</div>
+                <div class="restaurant-details">${restaurant.location} - ${restaurant.description}</div>
+            `;
+
+            restaurantList.appendChild(div);
+        });
+    } else {
+        restaurantList.innerHTML = "<p>No restaurants found for your search.</p>";
+    }
+}
+
+            const div = document.createElement("div");
+            div.classList.add("restaurant-item");
+
+            div.innerHTML = `
+                <div class="restaurant-name">${restaurant.name}</div>
+                <div class="restaurant-details">${restaurant.location} - ${restaurant.description}</div>
+            `;
+
+            restaurantList.appendChild(div);
+        });
+    } else {
+        restaurantList.innerHTML = "<p>No restaurants found for your search.</p>";
+    }
+}
+
+    </script>
+</body>
+</html>

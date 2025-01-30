@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Website</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#definition {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dictionary</h1>
+        <input type="text" id="word-input" placeholder="Enter a word" onkeyup="searchWord()">
+        <button onclick="searchWord()">Search</button>
+        <div id="definition"></div>
+    </div>
+    <script>
+        const dictionary = {
+    "apple": "A fruit that is typically round and red, green, or yellow in color.",
+    "banana": "A long, curved fruit that has a yellow skin when ripe.",
+    "cherry": "A small, round, red or black fruit with a stone inside.",
+    "date": "The sweet, dark brown fruit of a palm tree.",
+    "elephant": "A large mammal with thick skin, tusks, and a trunk."
+};
+
+function searchWord() {
+    const inputWord = document.getElementById('word-input').value.toLowerCase();
+    const definitionElement = document.getElementById('definition');
+    
+    if (inputWord === '') {
+        definitionElement.innerHTML = '';
+        return;
+    }
+
+    if (dictionary[inputWord]) {
+        definitionElement.innerHTML = `<strong>${inputWord.charAt(0).toUpperCase() + inputWord.slice(1)}:</strong> ${dictionary[inputWord]}`;
+    } else {
+        definitionElement.innerHTML = "Word not found in the dictionary.";
+    }
+}
+
+    </script>
+</body>
+</html>

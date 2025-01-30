@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Name</title>
+    <style>
+        /* Basic styles for layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #33c02e;
+}
+
+header {
+    background-color: #4468b6;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+section {
+    padding: 20px;
+    margin: 10px;
+    background-color: #e8e4f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input, form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+#courses{
+    margin-bottom: 100px;
+}
+nav{
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    
+}
+nav a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    margin: 10px;
+    
+}
+  </style>
+</head>
+<body>
+    <header>
+        <nav id="nav1">
+            <a href="">Home</a>
+            <a href="">Performance</a>
+            <a href="">Services</a>
+            <a href="">SignUp</a>
+            <a href="">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1 style="color: #45a049;">Welcome to SunShine Academy</h1>
+        <p>Welcome to our school's official website. Explore the sections for students, parents, teachers, and more!</p>
+    </section>
+
+    <section id="students">
+        <h2>Students Section</h2>
+        <p>This section contains resources and information specifically for students.</p>
+        <ul>
+            <li>Student Portal</li>
+            <li>Timetable</li>
+            <li>Grades and Reports</li>
+        </ul>
+    </section>
+
+    <section id="parents">
+        <h2>Parents Section</h2>
+        <p>Information for parents on how to support their children’s education and stay updated.</p>
+        <ul>
+            <li>Parent Portal</li>
+            <li>Event Calendar</li>
+            <li>Parent-Teacher Meetings</li>
+        </ul>
+    </section>
+
+    <section id="headteacher">
+        <h2>Headteacher’s Section</h2>
+        <p>Important announcements and updates from the headteacher of the school.</p>
+        <ul>
+            <li>School Vision and Mission</li>
+            <li>Updates and Announcements</li>
+            <li>Message from the Headteacher</li>
+        </ul>
+    </section>
+
+    <section id="teachers">
+        <h2>Teachers Section</h2>
+        <p>Information and resources for the teaching staff, including schedules, meetings, and professional development.</p>
+        <ul>
+            <li>Teacher Resources</li>
+            <li>Class Schedules</li>
+            <li>Staff Directory</li>
+        </ul>
+    </section>
+
+    <section id="enrollment">
+        <h2>Enrollment Section</h2>
+        <p>Check if your child can be enrolled in our school. Fill out the form to apply for admission.</p>
+        <form>
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" style="width: 50%;">
+            <label for="gradeLevel">Grade Level:</label>
+            <select id="gradeLevel" name="gradeLevel" style="width: 50%;">
+                <option value="1">Grade 1</option>
+                <option value="2">Grade 2</option>
+                <!-- Add other grades as needed -->
+            </select>
+            <button type="submit">Check Enrollment</button>
+        </form>
+    </section>
+
+    <section id="fees">
+        <h2>School Fees Payment</h2>
+        <p>Pay your child’s school fees easily online.</p>
+        <form>
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID">
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount">
+            <button type="submit">Pay Fees</button>
+        </form>
+    </section>
+
+    <section style="background-color: rgb(207, 30, 207); color: #4bdf52;" id="courses">
+        <h2>Courses Offered</h2>
+        <p>Explore the list of courses that students can take in various subjects.</p>
+        <ul>
+            <li>Mathematics</li>
+            <li>English</li>
+            <li>Science</li>
+            <li>History</li>
+            <li>Geography</li>
+            <!-- Add more courses as needed -->
+        </ul>
+    </section>
+    <footer  style="background-color: grey;">
+        <p>&copy; 2025 School Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

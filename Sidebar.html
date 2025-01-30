@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            margin-left: 30px;
+            text-align: center;
+            transition: margin-left 0.3s ease;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .open-sidebar {
+            left: 0;
+        }
+
+        .shift-content {
+            margin-left: 250px;
+        }
+
+        .toggle-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 3rem;
+            z-index: 1000;
+        }
+
+        .toggle-btn:focus {
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+            .shift-content {
+                margin-left: 200px;
+            }
+        }
+        h2{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h2>Sidebar Menu</h2>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="main-content" id="main-content">
+            <h1>Welcome to the Main Content</h1>
+            <p>This is a sample page with a responsive sidebar navigation.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+
+            if (sidebar.classList.contains('open-sidebar')) {
+                sidebar.classList.remove('open-sidebar');
+                mainContent.classList.remove('shift-content');
+            } else {
+                sidebar.classList.add('open-sidebar');
+                mainContent.classList.add('shift-content');
+            }
+        }
+    </script>
+</body>
+</html>

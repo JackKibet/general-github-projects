@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperMart - Your One-Stop Supermarket</title>
+    <style>
+        /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo h1 {
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+/* Main Section */
+main {
+    padding: 40px 20px;
+}
+
+.category {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.category:hover {
+    transform: translateY(-10px);
+}
+
+.category h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background-color: #ffeb3b;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .category h2 {
+        font-size: 1.5em;
+    }
+
+    .items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+    
+    header{
+        background-color: green;
+    }
+ 
+ .item{
+    background-color: rgb(88, 224, 35);
+ }
+    .category{
+        background-color: #ffeb3b;
+    }
+    div{
+        text-decoration: none;
+    }
+    h1{
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
+        color: #241515;
+    }
+    h1{
+        color: #333;
+    }
+    #input1{
+        position: relative;
+        right: -30%;
+    }
+    .search1{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    </style>
+
+<body>
+  
+    <header>
+        <div class="logo">
+            <h1>SuperMart</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Food</a>
+                </li>
+                <li><a href="#">Electronics</a> 
+                </li>
+                <li><a href="#">Groceries</a> 
+                </li>
+                <li><a href="#">Toiletries</a>
+                </li>
+                <li><a href="#">Fruits</a>    
+                </li>
+                <li><a href="#">Stationary</a>               
+                </li>
+                <li><a href="#">Toys</li>  
+                </li>
+            </ul>
+        </nav>
+        <div id="input1"><input class="search1" type="text"></div>
+    </header>
+    <main>
+        <section id="food" class="category">
+            <h2>Food Items</h2>
+            <div class="items">
+                <!-- Add food items here -->
+                <div class="item">Apple</div>
+                <div class="item">Bread</div>
+                <div class="item">Cheese</div>
+            </div>
+        </section>
+        <section id="electronics" class="category">
+            <h2>Electronics</h2>
+            <div class="items">
+                <div class="item">Laptop</div>
+                <div class="item">Smartphone</div>
+                <div class="item">Headphones</div>
+            </div>
+        </section>
+
+        <section id="groceries" class="category">
+            <h2>Groceries</h2>
+            <div class="items">
+                <div class="item">Rice</div>
+                <div class="item">Oil</div>
+                <div class="item">Pasta</div>
+            </div>
+        </section>
+
+        <section id="toiletries" class="category">
+            <h2>Toiletries</h2>
+            <div class="items">
+                <div class="item">Shampoo</div>
+                <div class="item">Toothpaste</div>
+                <div class="item">Toilet Paper</div>
+            </div>
+        </section>
+
+        <section id="fruits" class="category">
+            <h2>Fruits</h2>
+            <div class="items">
+                <div class="item">Banana</div>
+                <div class="item">Orange</div>
+                <div class="item">Grapes</div>
+            </div>
+        </section>
+
+        <section id="stationary" class="category">
+            <h2>Stationary</h2>
+            <div class="items">
+                <div class="item">Notebook</div>
+                <div class="item">Pen</div>
+                <div class="item">Marker</div>
+            </div>
+        </section>
+
+        <section id="toys" class="category">
+            <h2>Toys</h2>
+            <div class="items">
+                <div class="item">Lego Set</div>
+                <div class="item">Action Figure</div>
+                <div class="item">Teddy Bear</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SuperMart. All rights reserved.</p>
+    </footer>
+</body>
+</html>

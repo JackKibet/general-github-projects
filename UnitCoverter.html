@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <div class="converter">
+            <input type="number" id="inputValue" placeholder="Enter value" />
+            <select id="fromUnit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="millimeters">Millimeters</option>
+            </select>
+            <span>to</span>
+            <select id="toUnit">
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="millimeters">Millimeters</option>
+            </select>
+            <button onclick="convert()">Convert</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script>
+        function convert() {
+    let inputValue = parseFloat(document.getElementById('inputValue').value);
+    let fromUnit = document.getElementById('fromUnit').value;
+    let toUnit = document.getElementById('toUnit').value;
+    let result = 0;
+
+    if (isNaN(inputValue)) {
+        document.getElementById('result').innerHTML = "Please enter a valid number.";
+        return;
+    }
+
+    if (fromUnit === toUnit) {
+        result = inputValue;
+    } else {
+        // Convert to meters first
+        if (fromUnit === 'meters') {
+            result = inputValue;
+        } else if (fromUnit === 'kilometers') {
+            result = inputValue * 1000;
+        } else if (fromUnit === 'centimeters') {
+            result = inputValue / 100;
+        } else if (fromUnit === 'millimeters') {
+            result = inputValue / 1000;
+        }
+
+        // Convert from meters to the target unit
+        if (toUnit === 'meters') {
+            result = result;
+        } else if (toUnit === 'kilometers') {
+            result = result / 1000;
+        } else if (toUnit === 'centimeters') {
+            result = result * 100;
+        } else if (toUnit === 'millimeters') {
+            result = result * 1000;
+        }
+    }
+
+    document.getElementById('result').innerHTML = `Result: ${result} ${toUnit}`;
+}
+
+    </script>
+</body>
+</html>
